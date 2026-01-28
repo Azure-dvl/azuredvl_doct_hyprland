@@ -1,0 +1,48 @@
+[global]
+    monitor = 0
+    follow = keyboard
+    font = 3270 Nerd Font Mono 13
+    width = 350
+    height = 150
+    origin = top-right
+    offset = 20x20
+    frame_width = 2
+    frame_color = "#4097ff"
+    separator_color = frame
+    padding = 10
+    horizontal_padding = 10
+    line_height = 0
+    idle_threshold = 120
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = left
+    max_icon_size = 80
+    icon_path = /usr/share/icons/hicolor/48x48/apps:/usr/share/icons/gnome/48x48/apps:/usr/share/icons/Adwaita/48x48/apps
+    sticky_history = yes
+    history_length = 20
+    browser = xdg-open
+    always_run_script = true
+
+[urgency_low]
+    background = "#000000DD"
+    foreground = "#ffffff"
+    timeout = 5
+
+[urgency_normal]
+    background = "#000000DD"
+    foreground = "#ffffff"
+    timeout = 10
+
+[urgency_critical]
+    background = "#900000DD"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+    timeout = 0
