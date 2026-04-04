@@ -1,0 +1,102 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "output": "DP-1",
+  "modules-left": [ "custom/arch", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "tray",
+    "custom/seperator",
+    "pulseaudio",
+    "bluetooth",
+    "custom/seperator",
+    "cpu",
+    "memory",
+    "network#speed"
+  ],
+  "custom/seperator" : {
+    "format" : "<span>|</span>"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "{icon}",
+    "format-icons": ["  ", "   ", "   "],
+    "format-muted": "   ",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click": "pavucontrol",
+    "tooltip": true,
+    "tooltip-format": "{volume}% | {desc}"
+  },
+  "network": {
+    "format-wifi": " {icon}",
+    "format-ethernet": "󰈀",
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤢 ", "󰤨 "],
+    "format-disconnected": "󰪎 ",
+    "interval": 5,
+    "tooltip-format-wifi": " {bandwidthDownBytes} |  {bandwidthUpBytes} | {essid}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "exec ~/.config/rofi/wifi/wifi.sh",
+    "on-click-right": "kitty -e nmtui"
+  },
+  "network#speed": {
+    "interval": 1,
+    "format": "{ifname}%%",
+    "format-wifi": "<span color='#a6e3a1' >  </span>{bandwidthDownBytes} <span  color='#f38ba8'>  </span>{bandwidthUpBytes}",
+    "format-ethernet": "<span color='#a6e3a1' >  </span>{bandwidthDownBytes} <span  color='#f38ba8'>  </span>{bandwidthUpBytes}",
+    "format-disconnected": "󰌙",
+    "tooltip-format": "{ipaddr}",
+    "format-linked": "󰈁 {ifname} (No IP)",
+    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname} 󰌘",
+    "tooltip-format-disconnected": "󰌙 Disconnected",
+    "max-length": 22,
+    "min-length": 20,
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "<span color='#89b4fa' font='Font Awesome 6 Free-Solid'></span>  {usage}%",
+    "on-click": "kitty btop"
+  },
+  "memory": {
+    "interval": 1,
+    "format": " <span color='#89b4fa' font='Font Awesome 6 Free'></span>  {percentage}%",
+    "on-click": "kitty btop",
+    "tooltip-format": "{used}/{total} GiB"
+  },
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": ""
+    },
+    "persistent-workspaces": {
+      "*": 4
+    },
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1"
+  },
+  "custom/arch": {
+    "format": "<span font='omarchy'></span>",
+    "on-click": "~/.config/rofi/launchers/type-3/launcher.sh"
+  },
+  "clock": {
+    "format": "  {:%H:%M / %h %d}",
+    "tooltip": true,
+    "tooltip-format": "<tt>{calendar}</tt>"
+  },
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "blueberry"
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 12
+  }
+}
+
