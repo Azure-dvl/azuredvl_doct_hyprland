@@ -1,38 +1,36 @@
-# /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  #
-# /* wallust template - colors-cava */
-
 ## Configuration file for CAVA.
 # Remove the ; to change parameters.
+
 
 [general]
 
 # Smoothing mode. Can be 'normal', 'scientific' or 'waves'. DEPRECATED as of 0.6.0
-; mode = normal
+mode = normal
 
 # Accepts only non-negative values.
-; framerate = 60
+; framerate = 75
 
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # new as of 0.6.0 autosens of low values (dynamic range)
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens. DEPRECATED as of 0.6.0
-; autosens = 1
-; overshoot = 20
+autosens = 1
+; overshoot = 00
 
 # Manual sensitivity in %. If autosens is enabled, this will only be the initial value.
 # 200 means double height. Accepts only non-negative values.
-; sensitivity = 100
+ sensitivity = 100
 
 # The number of bars (0-512). 0 sets it to auto (fill up console).
 # Bars' width and space between bars in number of characters.
-; bars = 0
-; bar_width = 2
-; bar_spacing = 1
+# ;bars = 0
+ bar_width = 1 
+ bar_spacing = 1
 # bar_height is only used for output in "noritake" format
-; bar_height = 32
+; bar_height = 42
 
 # For SDL width and space between bars is in pixels, defaults are:
-; bar_width = 20
-; bar_spacing = 5
+; bar_width = 5
+; bar_spacing = 0
 
 # sdl_glsl have these default values, they are only used to calulate max number of bars.
 ; bar_width = 1
@@ -81,11 +79,11 @@
 # For jack 'source' will be the name of the JACK server to connect to, e.g. 'foobar'. Default: 'default'.
 # README.md contains further information on how to setup CAVA for JACK.
 #
- method = pulse
- source = auto
+; method = pulse
+; source = auto
 
- method = pipewire
- source = auto
+; method = pipewire
+; source = auto
 
 ; method = alsa
 ; source = hw:Loopback,1
@@ -225,32 +223,22 @@
 ; background = '#111111'
 ; foreground = '#33ffff'
 
-# these are default
+
 # Gradient mode, only hex defined colors are supported,
 # background must also be defined in hex or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
-; gradient = 0
-; gradient_count = 8
-; gradient_color_1 = '#59cc33'
-; gradient_color_2 = '#80cc33'
-; gradient_color_3 = '#a6cc33'
-; gradient_color_4 = '#cccc33'
-; gradient_color_5 = '#cca633'
-; gradient_color_6 = '#cc8033'
-; gradient_color_7 = '#cc5933'
-; gradient_color_8 = '#cc3333'
-
-# for wallust
+[color]
 gradient = 1
-gradient_count = 8
-gradient_color_1 = '#3E3B42'
-gradient_color_2 = '#1A122D'
-gradient_color_3 = '#31227B'
-gradient_color_4 = '#705998'
-gradient_color_5 = '#D7C4F6'
-gradient_color_6 = '#614B8A'
-gradient_color_7 = '#9677CA'
-gradient_color_8 = '#D7C4F6'
+
+gradient_color_1 = '#8bd5ca'
+gradient_color_2 = '#91d7e3'
+gradient_color_3 = '#7dc4e4'
+gradient_color_4 = '#8aadf4'
+gradient_color_5 = '#c6a0f6'
+gradient_color_6 = '#f5bde6'
+gradient_color_7 = '#ee99a0'
+gradient_color_8 = '#ed8796'
+
 
 
 [smoothing]
@@ -261,8 +249,8 @@ gradient_color_8 = '#D7C4F6'
 ; integral = 77
 
 # Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable.
-; monstercat = 0
-; waves = 0
+ monstercat = 0
+ waves = 0
 
 # Set gravity percentage for "drop off". Higher values means bars will drop faster.
 # Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
@@ -277,7 +265,7 @@ gradient_color_8 = '#D7C4F6'
 # Noise reduction, int 0 - 100. default 77
 # the raw visualization is very noisy, this factor adjusts the integral and gravity filters to keep the signal smooth
 # 100 will be very slow and smooth, 0 will be fast but noisy.
-; noise_reduction = 77
+ noise_reduction = 80
 
 
 [eq]

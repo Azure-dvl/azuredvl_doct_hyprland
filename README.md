@@ -22,14 +22,13 @@ sudo pacman -S --needed \
     kitty \
     dunst \
     ranger \
-    btop \
+    htop \
     blueberry \
     pavucontrol \
     networkmanager nm-connection-editor \
     zsh \
     gdm \
     gnome-themes-extra \
-    papirus-icon-theme \
     fontconfig \
     noto-fonts noto-fonts-cjk \
     ttf-jetbrains-mono ttf-font-awesome
@@ -40,9 +39,8 @@ sudo pacman -S --needed \
 ```bash
 yay -S --needed \
     otf-font-awesome \
-    nordic-darker \
-    laoyan-gtk-theme-darker \
-    bibata-cursors
+    nordic \
+    candy-icons-git
 ```
 
 ## 2. Backup y copiar configuraciones

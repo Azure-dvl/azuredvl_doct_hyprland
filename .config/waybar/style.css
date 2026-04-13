@@ -1,113 +1,48 @@
-@import 'mocha.css';
+@import './catpuccin.css';
 
 * {
-  background-color: transparent;
+  background-color: @base;
   color: @text;
   border: none;
   font-size: 14px;
-  font-family: "JetBrainsMono Nerd Font";
-  min-height: 25px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 1px;
-  border-radius: 20px;
+  font-family: "NotoSerifNerdFont";
+  min-height: 15px;
+  padding: 0 5px;
+  border-radius: 20px
 }
-
-
-.modules-left {}
-
-.modules-right {}
 
 #workspaces {
   border-radius: 0px;
-  background: transparent;
   margin-right: 10px;
 }
 
 #workspaces button {
-  background: transparent;
+  background: @base;
   all: initial;
   padding: 0 8px;
   margin: 0 2px;
 }
 
-#workspaces button.empty {
-  background: transparent;
-}
-
-#tray {
-  min-width: 0;
-  transition: min-width 0.2s ease, opacity 0.2s ease;
-  opacity: 1;
+#tray,
+#cpu,
+#network,
+#bluetooth {
+  min-width: 12px;
+  margin: 5px 5px;
 }
 
 #tray,
 #cpu,
 #network,
-#pulseaudio {
-  min-width: 12px;
-  margin: 0 7.5px;
-}
-
-
-#clock {
-  color: @text;
-  padding: 0 10px;
-}
-
-#custom-arch {
-  min-width: 20px;
-  margin: 0px 10px 0px 6px;
-  font-size: 18px;
+#bluetooth {
   color: @blue;
 }
 
-#custom-expand-icon {
-  margin-right: 7px;
-}
-
-tooltip {
-  font-family: Ubuntu Mono Nerd Font;
-  padding: 2px;
-}
-
-
-.hidden {
-  opacity: 0;
-}
-
-#custom-seperator {
-  color: @surface2;
-}
-
-#cpu {
-  color: @text;
-  margin-right: 10px;
-}
-
-#memory {
-  color: @text;
-  margin-right: 10px;
-}
-
 #pulseaudio {
   color: @lavender;
 }
 
-#network {
-  color: @lavender;
-  margin-right: 10px;
-}
-
-#network.speed {
-  color: @text;
-}
-
-@keyframes blink {
-  to {
-    color: #f38ba8;
-    /* Red */
-    background: #f2cdcd;
-    /* Text */
-  }
+tooltip {
+  font-family: NotoSerifNerdFont;
+  padding: 2px;
 }
