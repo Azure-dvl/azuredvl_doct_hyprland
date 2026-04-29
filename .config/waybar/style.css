@@ -1,45 +1,45 @@
-@import './catpuccin.css';
+@import './neon.css';
 
 * {
-  background-color: @base;
+  background-color: transparent;
   color: @text;
   border: none;
   font-size: 14px;
   font-family: "0xProtoNerdFont";
   min-height: 15px;
-  padding: 0 5px;
-  border-radius: 20px
-}
-
-#workspaces {
-  border-radius: 0px;
-  margin-right: 10px;
-}
-
-#workspaces button {
-  background: @base;
-  all: initial;
-  padding: 0 8px;
-  margin: 0 2px;
+  padding: 3px 8px;
+  border-radius: 10px
 }
 
 #tray,
 #cpu,
 #network,
+#memory,
+#pulseaudio,
 #bluetooth {
   min-width: 12px;
-  margin: 5px 5px;
+  margin: 2px 2px;
+  background-color: @base;
 }
 
 #tray,
 #cpu,
+#memory,
 #network,
+#pulseaudio,
 #bluetooth {
-  color: @blue;
+  color: @text;
 }
 
-#pulseaudio {
-  color: @lavender;
+#custom-obs,
+#custom-android-studio,
+#custom-telegram,
+#custom-vscode,
+#custom-thunderbird,
+#custom-lutris,
+#custom-discord{
+ color: @blue;
+ margin:2px 2px;
 }
 
 tooltip {

@@ -230,16 +230,14 @@ autosens = 1
 [color]
 gradient = 1
 
-gradient_color_1 = '#8bd5ca'
-gradient_color_2 = '#91d7e3'
-gradient_color_3 = '#7dc4e4'
-gradient_color_4 = '#8aadf4'
-gradient_color_5 = '#c6a0f6'
-gradient_color_6 = '#f5bde6'
-gradient_color_7 = '#ee99a0'
-gradient_color_8 = '#ed8796'
-
-
+gradient_color_1 = '#0066ff'
+gradient_color_2 = '#0088ff'
+gradient_color_3 = '#00aaff'
+gradient_color_4 = '#00ccff'
+gradient_color_5 = '#00ffff'
+gradient_color_6 = '#00ffcc'
+gradient_color_7 = '#00ff88'
+gradient_color_8 = '#00ff55'
 
 [smoothing]
 

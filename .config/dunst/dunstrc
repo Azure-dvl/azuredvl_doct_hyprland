@@ -23,8 +23,8 @@
     progress_bar_max_width = 300
     separator_height = 2
     frame_width = 1
-    frame_color = "#45475a"
-    separator_color = "#45475a"
+    frame_color = "#00d4ff"
+    separator_color = "#00d4ff"
     corner_radius = 8
     transparency = 0.5
     gap_size = 8
@@ -57,19 +57,19 @@
 
 
 [urgency_low]
-    background = "#11111b"
-    foreground = "#cdd6f4"
-    highlight = "#cba6f7"
+    background = "#0a0a0f"
+    foreground = "#e0e0e0"
+    highlight = "#00d4ff"
     timeout = 4
 
 [urgency_normal]
-    background = "#11111b"
-    foreground = "#cdd6f4"
-    highlight = "#cba6f7"
+    background = "#0a0a0f"
+    foreground = "#e0e0e0"
+    highlight = "#00d4ff"
     timeout = 6
 
 [urgency_critical]
-    background = "#11111b"
-    foreground = "#cdd6f4"
-    highlight = "#cba6f7"
+    background = "#0a0a0f"
+    foreground = "#ff00ff"
+    highlight = "#ff0055"
     timeout = 0

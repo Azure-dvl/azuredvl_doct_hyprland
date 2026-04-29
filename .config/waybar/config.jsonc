@@ -1,42 +1,58 @@
 {
   "layer": "top",
-  "position": "top",
-  "height": 36,
-  "spacing": 1,
-  "margin": "0 600px",
+  "position": "bottom",
+  "height": 40,
+  "width":500,
+  "spacing": 8,
+  "margin": "0 0",
+  "exclusive": false,
+  "autohide": true,
+  "autohide-delay": 3000,
+  "autohide-starthidden": false,
   "tooltip": true,
   "tooltip-delay-hide": 0,
   "tooltip-show": 0,
   "output": "DP-1",
-  "modules-left": ["hyprland/workspaces"],
-  "modules-right": [
+
+  "modules-center": [
     "tray",
     "pulseaudio",
     "bluetooth",
     "cpu",
-    "memory"
+    "memory",
+    "custom/android-studio",
+    "custom/vscode",
+    "custom/obs",
+    "custom/telegram",
+    "custom/thunderbird",
+    "custom/lutris",
+    "custom/discord"
   ],
+
   "pulseaudio": {
     "format": "{icon}",
     "format-bluetooth": "{icon}",
     "format-icons": ["  ", "   ", "   "],
     "format-muted": "   ",
     "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click": "pavucontrol",
+    "on-click": "hyprpwcenter",
     "tooltip": true,
     "tooltip-format": "{volume}% | {desc}"
   },
+
   "cpu": {
     "interval": 1,
-    "format": "<span color='#89b4fa' font='Font Awesome 6 Free-Solid'></span>  {usage}%",
+    "format": " <span color='#89b4fa' font='Font Awesome 6 Free-Solid'></span>  {usage}%",
     "on-click": "kitty btop"
   },
+
   "memory": {
     "interval": 1,
     "format": " <span color='#89b4fa' font='Font Awesome 6 Free'></span>  {percentage}%",
     "on-click": "kitty btop",
     "tooltip-format": "{used}/{total} GiB"
   },
+
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -50,16 +66,59 @@
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "on-scroll-down": "hyprctl dispatch workspace e+1"
   },
+
   "bluetooth": {
     "format": "",
     "format-disabled": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "blueberry"
+    "on-click": "blueman-manager"
   },
+
   "tray": {
     "icon-size": 12,
     "spacing": 12
+  },
+
+  "custom/android-studio": {
+    "format": "",
+    "tooltip-format": "Android Studio",
+    "on-click": "/usr/bin/android-studio"
+  },
+
+  "custom/vscode": {
+    "format": "",
+    "tooltip-format": "Visual Studio Code",
+    "on-click": "/usr/bin/code"
+  },
+
+  "custom/obs": {
+    "format": "",
+    "tooltip-format": "OBS Studio",
+    "on-click": "/usr/bin/obs"
+  },
+
+  "custom/telegram": {
+    "format": "",
+    "tooltip-format": "Telegram",
+    "on-click": "/usr/bin/Telegram"
+  },
+
+  "custom/thunderbird": {
+    "format": "",
+    "tooltip-format": "Thunderbird",
+    "on-click": "/usr/bin/thunderbird"
+  },
+
+  "custom/lutris": {
+    "format": "",
+    "tooltip-format": "Lutris",
+    "on-click": "/usr/bin/lutris"
+  },
+
+  "custom/discord": {
+    "format": "󰍦",
+    "tooltip-format": "Discord",
+    "on-click": "gtk-launch discord-460807638964371468.desktop"
   }
 }
-

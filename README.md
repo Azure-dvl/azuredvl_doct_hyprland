@@ -17,30 +17,29 @@ cd yay && makepkg -si
 ```bash
 sudo pacman -S --needed \
     hyprland \
-    hyprlock hypridle hyprpaper \
-    waybar wofi rofi \
-    kitty \
+    hyprlock hypridle hyprpaper xdg-desktop-portal-hyprland hyprpolkitagent hyprcursor \
+    waybar rofi grim \
+    kitty cava \
     dunst \
     ranger \
     htop \
-    blueberry \
+    blueman \
     pavucontrol \
     networkmanager nm-connection-editor \
-    zsh \
-    gdm \
-    gnome-themes-extra \
-    fontconfig \
-    noto-fonts noto-fonts-cjk \
-    ttf-jetbrains-mono ttf-font-awesome
+    zsh fzf tty-clock \
+    gdm mpv \
+    noto-fonts \
+    ttf-0xproto-nerd 
 ```
 
 ### Paquetes AUR (yay)
 
 ```bash
 yay -S --needed \
-    otf-font-awesome \
-    nordic \
-    candy-icons-git
+    tela-icon-theme-git \
+    hyprqt6engine \
+    gtk-cyberpunk-neon-theme-git \
+    tela-icon-theme-git
 ```
 
 ## 2. Backup y copiar configuraciones
@@ -52,37 +51,14 @@ mkdir -p ~/dotfiles_backup
 # Backup de configuraciones actuales
 cp -r ~/.config ~/dotfiles_backup/config_backup_$(date +%Y%m%d)
 cp ~/.zshrc ~/dotfiles_backup/zshrc_backup_$(date +%Y%m%d)
-cp -r ~/.themes ~/dotfiles_backup/themes_backup_$(date +%Y%m%d) 2>/dev/null || true
-cp -r ~/.icons ~/dotfiles_backup/icons_backup_$(date +%Y%m%d) 2>/dev/null || true
 
 # Copiar nuevas configuraciones
 cp -r .config/* ~/.config/
 cp .zshrc ~/
-cp -r .themes/* ~/.themes/
-cp -r .icons/* ~/.icons/
+cp -r .wallpapers/ ~/.wallpapers
 ```
 
-## 3. Instalar temas GTK
-
-```bash
-# Los temas Layan-Dark ya están en .themes/
-# Para activar el tema, usa nwg-look o edita ~/.config/gtk-4.0/settings.ini
-
-# O instala desde AUR si prefieres
-yay -S laoyan-gtk-theme-darker
-```
-
-## 4. Instalar iconos
-
-```bash
-# Los cursores Nordic ya están en .icons/
-# Para activar los iconos, usa nwg-look o lxappearance
-
-# O instala desde AUR
-yay -S papirus-icon-theme bibata-cursors nordic-darker
-```
-
-## 5. Instalar oh-my-zsh y powerlevel10k
+## 3. Instalar oh-my-zsh y powerlevel10k
 
 ```bash
 # Instalar oh-my-zsh
@@ -107,6 +83,3 @@ hyprctl reload
 ## Notas
 
 - **Monitor**: La config de waybar usa `DP-1`. Cambia el nombre del output en `~/.config/waybar/config.jsonc`
-- **GTK Theme**: Configura `Layan-Dark` en `~/.config/gtk-4.0/settings.ini` o usa `nwg-look`
-- **Icon Theme**: Configura `Papirus` o `Nordic` en tu gestor de GTK
-- **Cursor**: Configura `Bibata-Modern-Blue` o `Nordic-cursors`
