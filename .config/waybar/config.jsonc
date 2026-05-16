@@ -15,18 +15,20 @@
   "output": "DP-1",
 
   "modules-center": [
+    "custom/android-studio",
+    "custom/vscode",
+    "custom/gapless",
+    "custom/obs",
+    "custom/thunderbird",
+    "custom/telegram",
+    "custom/discord",
+    "custom/steam",
+    "custom/lutris",
     "tray",
     "pulseaudio",
     "bluetooth",
     "cpu",
-    "memory",
-    "custom/android-studio",
-    "custom/vscode",
-    "custom/obs",
-    "custom/telegram",
-    "custom/thunderbird",
-    "custom/lutris",
-    "custom/discord"
+    "memory"
   ],
 
   "pulseaudio": {
@@ -120,5 +122,16 @@
     "format": "󰍦",
     "tooltip-format": "Discord",
     "on-click": "gtk-launch discord-460807638964371468.desktop"
-  }
+  },
+  "custom/steam": {
+    "format":"",
+    "tooltip-format": "Steam",
+    "on-click": "/usr/bin/steam"
+  },
+
+  "custom/gapless":{
+     "format":"",
+    "tooltip-format": "Gapless",
+    "on-click": "/usr/bin/g4music"
+  },
 }

@@ -1,4 +1,4 @@
-@import './neon.css';
+@import './catpuccin.css';
 
 * {
   background-color: transparent;
@@ -37,8 +37,10 @@
 #custom-vscode,
 #custom-thunderbird,
 #custom-lutris,
-#custom-discord{
- color: @blue;
+#custom-discord,
+#custom-steam,
+#custom-gapless{
+ color: @lavender;
  margin:2px 2px;
 }
 
