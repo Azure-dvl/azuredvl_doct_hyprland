@@ -1,35 +1,25 @@
 {
   "layer": "top",
-  "position": "bottom",
-  "height": 40,
-  "width":500,
-  "spacing": 8,
+  "position": "top",
+  "height": 34,
+  "width": 700,
+  "spacing": 0,
   "margin": "0 0",
-  "exclusive": false,
-  "autohide": true,
-  "autohide-delay": 3000,
-  "autohide-starthidden": false,
-  "tooltip": true,
-  "tooltip-delay-hide": 0,
-  "tooltip-show": 0,
-  "output": "DP-1",
 
-  "modules-center": [
+  "modules-left": [
     "custom/android-studio",
     "custom/vscode",
-    "custom/gapless",
     "custom/obs",
     "custom/thunderbird",
     "custom/telegram",
     "custom/discord",
-    "custom/steam",
     "custom/lutris",
-    "tray",
-    "pulseaudio",
-    "bluetooth",
-    "cpu",
-    "memory"
+    "custom/steam",
   ],
+
+  "modules-center": ["clock"],
+
+  "modules-right": ["tray", "pulseaudio", "bluetooth", "cpu", "memory"],
 
   "pulseaudio": {
     "format": "{icon}",
@@ -39,34 +29,20 @@
     "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click": "hyprpwcenter",
     "tooltip": true,
-    "tooltip-format": "{volume}% | {desc}"
+    "tooltip-format": "{volume}% | {desc}",
   },
 
   "cpu": {
     "interval": 1,
-    "format": " <span color='#89b4fa' font='Font Awesome 6 Free-Solid'></span>  {usage}%",
-    "on-click": "kitty btop"
+    "format": " <span font='Font Awesome 6 Free-Solid'></span>  {usage}%",
+    "on-click": "kitty btop",
   },
 
   "memory": {
     "interval": 1,
-    "format": " <span color='#89b4fa' font='Font Awesome 6 Free'></span>  {percentage}%",
+    "format": " <span font='Font Awesome 6 Free'></span>  {percentage}%",
     "on-click": "kitty btop",
-    "tooltip-format": "{used}/{total} GiB"
-  },
-
-  "hyprland/workspaces": {
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "active": ""
-    },
-    "persistent-workspaces": {
-      "*": 4
-    },
-    "on-scroll-up": "hyprctl dispatch workspace e-1",
-    "on-scroll-down": "hyprctl dispatch workspace e+1"
+    "tooltip-format": "{used}/{total} GiB",
   },
 
   "bluetooth": {
@@ -74,64 +50,63 @@
     "format-disabled": "󰂲",
     "format-connected": "",
     "tooltip-format": "Devices connected: {num_connections}",
-    "on-click": "blueman-manager"
+    "on-click": "blueman-manager",
   },
 
   "tray": {
     "icon-size": 12,
-    "spacing": 12
+    "spacing": 12,
   },
 
   "custom/android-studio": {
-    "format": "",
+    "format": "  ",
     "tooltip-format": "Android Studio",
-    "on-click": "/usr/bin/android-studio"
+    "on-click": "/usr/bin/android-studio",
   },
 
   "custom/vscode": {
-    "format": "",
+    "format": "  ",
     "tooltip-format": "Visual Studio Code",
-    "on-click": "/usr/bin/code"
+    "on-click": "/usr/bin/code",
   },
 
   "custom/obs": {
-    "format": "",
+    "format": "  ",
     "tooltip-format": "OBS Studio",
-    "on-click": "/usr/bin/obs"
+    "on-click": "/usr/bin/obs",
   },
 
   "custom/telegram": {
-    "format": "",
+    "format": "  ",
     "tooltip-format": "Telegram",
-    "on-click": "/usr/bin/Telegram"
+    "on-click": "/usr/bin/Telegram",
   },
 
   "custom/thunderbird": {
-    "format": "",
+    "format": "  ",
     "tooltip-format": "Thunderbird",
-    "on-click": "/usr/bin/thunderbird"
+    "on-click": "/usr/bin/thunderbird",
   },
 
   "custom/lutris": {
-    "format": "",
+    "format": "  ",
     "tooltip-format": "Lutris",
-    "on-click": "/usr/bin/lutris"
+    "on-click": "/usr/bin/lutris",
   },
 
   "custom/discord": {
-    "format": "󰍦",
+    "format": " 󰍦 ",
     "tooltip-format": "Discord",
-    "on-click": "gtk-launch discord-460807638964371468.desktop"
+    "on-click": "gtk-launch discord-460807638964371468.desktop",
   },
   "custom/steam": {
-    "format":"",
+    "format": "  ",
     "tooltip-format": "Steam",
-    "on-click": "/usr/bin/steam"
+    "on-click": "/usr/bin/steam",
   },
-
-  "custom/gapless":{
-     "format":"",
-    "tooltip-format": "Gapless",
-    "on-click": "/usr/bin/g4music"
+  "clock": {
+    "tooltip-format": "{calendar}",
+    "format-alt": "  {:%a, %d %b %Y}",
+    "format": "  {:%I:%M %p}",
   },
 }

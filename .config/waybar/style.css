@@ -1,14 +1,13 @@
-@import './catpuccin.css';
+@import "./catpuccin.css";
 
 * {
-  background-color: transparent;
-  color: @text;
   border: none;
-  font-size: 14px;
+  border-radius: 0;
+  background-color: transparent;
+  margin: 1 5px;
+  min-height: 0;
+  font-size: 10px;
   font-family: "0xProtoNerdFont";
-  min-height: 15px;
-  padding: 3px 8px;
-  border-radius: 10px
 }
 
 #tray,
@@ -16,19 +15,33 @@
 #network,
 #memory,
 #pulseaudio,
-#bluetooth {
-  min-width: 12px;
-  margin: 2px 2px;
+#bluetooth,
+#clock,
+#custom-obs,
+#custom-android-studio,
+#custom-telegram,
+#custom-vscode,
+#custom-thunderbird,
+#custom-lutris,
+#custom-discord,
+#custom-steam {
+  border-radius: 15px;
+  margin: 1px 3px;
+  padding: 0px 12px;
   background-color: @base;
 }
 
+#clock {
+  color: @text;
+}
+
 #tray,
 #cpu,
-#memory,
 #network,
+#memory,
 #pulseaudio,
 #bluetooth {
-  color: @text;
+  color: @blue;
 }
 
 #custom-obs,
@@ -38,10 +51,8 @@
 #custom-thunderbird,
 #custom-lutris,
 #custom-discord,
-#custom-steam,
-#custom-gapless{
- color: @lavender;
- margin:2px 2px;
+#custom-steam {
+  color: @red;
 }
 
 tooltip {
