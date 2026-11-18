@@ -1,4 +1,5 @@
 var_terminal = "kitty"
-var_fileManager = "kitty ranger"
+var_fileManager = "thunar"
+-- var_menu = "qs ipc call appMenu toggle"
 var_menu = "~/.config/rofi/launchers/type-1/launcher.sh"
 var_navegador = "firefox"

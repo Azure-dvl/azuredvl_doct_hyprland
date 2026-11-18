@@ -14,7 +14,6 @@
     "custom/telegram",
     "custom/discord",
     "custom/lutris",
-    "custom/steam",
   ],
 
   "modules-center": ["clock"],
@@ -98,11 +97,6 @@
     "format": " 󰍦 ",
     "tooltip-format": "Discord",
     "on-click": "gtk-launch discord-460807638964371468.desktop",
-  },
-  "custom/steam": {
-    "format": "  ",
-    "tooltip-format": "Steam",
-    "on-click": "/usr/bin/steam",
   },
   "clock": {
     "tooltip-format": "{calendar}",

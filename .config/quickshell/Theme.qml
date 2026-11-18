@@ -1,74 +1,54 @@
-pragma Singleton
-
-import QtQuick
 import Quickshell
+import QtQuick
 
-Singleton {
-    property Item get: catppuccin
+// Nord (https://www.nordtheme.com) - paleta canónica.
+// Se conservan los nombres de propiedades usados por todos los QML.
+QtObject {
+  readonly property color nord0:  "#2E3440" // polar night 0
+  readonly property color nord1:  "#3B4252"
+  readonly property color nord2:  "#434C5E"
+  readonly property color nord3:  "#4C566A"
+  readonly property color nord4:  "#D8DEE9" // snow storm 4
+  readonly property color nord5:  "#E5E9F0"
+  readonly property color nord6:  "#ECEFF4"
+  readonly property color nord7:  "#8FBCBB" // frost 7
+  readonly property color nord8:  "#88C0D0"
+  readonly property color nord9:  "#81A1C1"
+  readonly property color nord10: "#5E81AC"
+  readonly property color nord11: "#BF616A" // aurora 11
+  readonly property color nord12: "#D08770"
+  readonly property color nord13: "#EBCB8B"
+  readonly property color nord14: "#A3BE8C"
+  readonly property color nord15: "#B48EAD"
 
-    Item {
-        id: catppuccin
+  readonly property color bgBase:       nord0
+  readonly property color bgSurface:    nord1
+  readonly property color bgOverlay:    nord2
+  readonly property color bgHover:      nord3
+  readonly property color bgSelected:   nord2
+  readonly property color bgBorder:     "#88000000"
 
-        // Theme Catpuccin
-        readonly property color bg: "#1e1e2e"
-        readonly property color fg: "#cdd6f4"
+  readonly property color textPrimary:   nord6
+  readonly property color textSecondary: nord4
+  readonly property color textMuted:     nord3
 
-        readonly property color active_bg: "#89b4fa"
-        readonly property color active_fg: "#1e1e2e"
-        readonly property color inactive_bg: "#313244"
-        readonly property color inactive_fg: "#6c7086"
+  readonly property color accentPrimary: nord8
+  readonly property color accentCyan:    nord7
+  readonly property color accentGreen:   nord14
+  readonly property color accentOrange:  nord12
+  readonly property color accentRed:     nord11
+  readonly property color accentYellow:  nord13
+  readonly property color accentBlue:    nord9
+  readonly property color accentPurple:  nord15
 
-        readonly property color black: "#45475a"
-        readonly property color red: "#f38ba8"
-        readonly property color green: "#a6e3a1"
-        readonly property color yellow: "#f9e2af"
-        readonly property color blue: "#89b4fa"
-        readonly property color pink: "#f5c2e7"
-        readonly property color white: "#bac2de"
-        readonly property color bright_black: "#585b70"
-        readonly property color bright_red: "#f38ba8"
-        readonly property color bright_green: "#a6e3a1"
-        readonly property color bright_yellow: "#f9e2af"
-        readonly property color bright_blue: "#89b4fa"
-        readonly property color bright_pink:  "#f5c2e7"
-        readonly property color bright_white: "#a6adc8"
+  readonly property color urgencyLow:      textMuted
+  readonly property color urgencyNormal:   accentPrimary
+  readonly property color urgencyCritical: accentRed
+  readonly property color batteryGood:     accentGreen
+  readonly property color batteryWarning:  accentOrange
+  readonly property color batteryCritical: accentRed
 
-        // Font
-        readonly property string fontFamily: "0xProtoNerdFont"
-        readonly property int fontSize: 14
-        readonly property double letterSpacing: 2
-    }
-
-    Item {
-        id: nordic
-
-        // Theme Nordic
-        readonly property color bg: "#2E3440"
-        readonly property color fg: "#D8DEE9"
-
-        readonly property color active_fg: "#2E3440"
-        readonly property color active_bg: "#5E81AC"
-        readonly property color inactive_fg: "#D8DEE9"
-        readonly property color inactive_bg: "#4C566A"
-
-        readonly property color black: "#3B4252"
-        readonly property color red: "#941F2C"
-        readonly property color green: "#718C64"
-        readonly property color yellow: "#D1B65C"
-        readonly property color blue: "#81A1C1"
-        readonly property color pink: "#8C6984"
-        readonly property color white: "#D8DEE9"
-        readonly property color bright_black: "#4C566A"
-        readonly property color bright_red: "#BF616A"
-        readonly property color bright_green: "#A3BE8C"
-        readonly property color bright_yellow: "#EBCB8B"
-        readonly property color bright_blue: "#56748E"
-        readonly property color bright_pink:  "#B48EAD"
-        readonly property color bright_white: "#E5E9F0"
-
-        // Font
-        readonly property string fontFamily: "0xProtoNerdFont"
-        readonly property int fontSize: 14
-        readonly property double letterSpacing: 2
-    }
+  readonly property string currentName: "Nord"
+  readonly property string currentFamily: "0xProtoNerdFont"
+  readonly property bool isDark: true
 }

@@ -7,10 +7,10 @@ require("programs")
 hl.bind(var_main .. " + E", hl.dsp.exec_cmd(var_fileManager))
 hl.bind(var_main .. " + T", hl.dsp.exec_cmd(var_terminal))
 hl.bind(var_main .. " + M", hl.dsp.exec_cmd(var_menu))
-hl.bind(var_main .. " + N", hl.dsp.exec_cmd(var_navegador))
+-- hl.bind(var_main .. " + N", hl.dsp.exec_cmd(var_navegador))
 hl.bind(var_main .. " + C", hl.dsp.exec_cmd("kitty cava"))
 hl.bind(var_main .. " + O", hl.dsp.exec_cmd("kitty opencode"))
-hl.bind(var_main .. " + H", hl.dsp.exec_cmd("kitty tty-clock -c -C 4"))
+-- hl.bind(var_main .. " + H", hl.dsp.exec_cmd("kitty tty-clock -c -C 4"))
 
 -- Screenshot
 hl.bind("Print", hl.dsp.exec_cmd("grimblast --notify copy output"))
@@ -37,12 +37,16 @@ hl.bind(var_main .. " + 1", hl.dsp.focus({ workspace = 1 }))
 hl.bind(var_main .. " + 2", hl.dsp.focus({ workspace = 2 }))
 hl.bind(var_main .. " + 3", hl.dsp.focus({ workspace = 3 }))
 hl.bind(var_main .. " + 4", hl.dsp.focus({ workspace = 4 }))
+hl.bind(var_main .. " + 5", hl.dsp.focus({ workspace = 5 }))
+hl.bind(var_main .. " + 6", hl.dsp.focus({ workspace = 6 }))
 
 -- Move active window to a workspace with main + SHIFT + [0-9]
 hl.bind(var_main .. " + " .. var_mod .. " + 1", hl.dsp.window.move({ workspace = 1 }))
 hl.bind(var_main .. " + " .. var_mod .. " + 2", hl.dsp.window.move({ workspace = 2 }))
 hl.bind(var_main .. " + " .. var_mod .. " + 3", hl.dsp.window.move({ workspace = 3 }))
 hl.bind(var_main .. " + " .. var_mod .. " + 4", hl.dsp.window.move({ workspace = 4 }))
+hl.bind(var_main .. " + " .. var_mod .. " + 5", hl.dsp.window.move({ workspace = 5 }))
+hl.bind(var_main .. " + " .. var_mod .. " + 6", hl.dsp.window.move({ workspace = 6 }))
 
 -- Scroll through existing workspaces with main + scroll
 hl.bind(var_main .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

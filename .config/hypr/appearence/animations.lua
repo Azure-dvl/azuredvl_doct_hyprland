@@ -112,6 +112,18 @@ hl.animation({
     bezier = "almostLinear",
     style = "fade",
 })
+hl.animation({
+    leaf = "borderangle",
+    enabled = true,
+    speed = 1.0,
+    bezier = "default",
+})
+hl.animation({
+    leaf = "zoomFactor",
+    enabled = true,
+    speed = 10.0,
+    bezier = "default",
+})
 
 -- Rofi
 hl.window_rule({

@@ -1,0 +1,271 @@
+// MediaMenu.qml
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls
+import Quickshell
+import Quickshell.Wayland
+import Quickshell.Widgets
+import Quickshell.Io
+
+import qs
+
+Scope {
+  id: root
+  property alias mediaMenuVariants: variants
+  property var theme: Theme {}
+
+  Component.onCompleted: WindowManager.mediaMenuVariants = mediaMenuVariants
+
+  Variants {
+    id: variants
+    model: Quickshell.screens
+
+    ScalePanelWindow {
+      id: window
+
+      property var modelData
+      screen: modelData
+
+      WlrLayershell.keyboardFocus: scaleItemAlias.state == "open" ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
+
+      scaleItemAlias: scaleItem
+      mainPanelAlias: mainPanel
+
+      Timer {
+        running: true
+        interval: 100
+        repeat: true
+
+        onTriggered: {
+          if (!Players.hasPlayer) {
+            console.log("closed")
+            window.close()
+          }
+        }
+      }
+
+      PanelScaleItem {
+        id: scaleItem
+
+        anchors.fill: parent
+
+        transformOrigin: Item.Top
+
+        InvertedRounding {
+          anchors.top: mainPanel.top
+          anchors.right: mainPanel.left
+          roundingColor: mainPanel.color
+          opacity: mainPanel.opacity
+          rounding: 15
+        }
+
+        InvertedRounding {
+          anchors.top: mainPanel.top
+          anchors.left: mainPanel.right
+          roundingColor: mainPanel.color
+          opacity: mainPanel.opacity
+          rounding: 15
+          rotation: -90
+        }
+
+        Rectangle {
+          id: mainPanel
+
+          width: mainRow.width
+          height: 400
+
+          color: root.theme.bgSurface
+
+          bottomLeftRadius: 15
+          bottomRightRadius: bottomLeftRadius
+
+          anchors.horizontalCenter: parent.horizontalCenter
+          anchors.top: parent.top
+
+          layer.enabled: true
+
+          Row {
+            id: mainRow
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+
+            spacing: 0
+
+            padding: 5
+
+            width: children.width
+
+            Rectangle {
+              id: mediaRect
+
+              implicitWidth: mediaColumn.width + 10
+              implicitHeight: parent.height - 10
+
+              color: root.theme.bgSelected
+
+              radius: 10
+
+              ColumnLayout {
+                id: mediaColumn
+                spacing: 5
+
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                y: 5
+                
+                Item {
+                  id: imgItem
+                  Layout.preferredWidth: 270
+                  Layout.preferredHeight: width
+
+                  Layout.alignment: Qt.AlignHCenter
+
+                  RoundedImage {
+                    id: img
+                    source: Players.player.trackArtUrl
+
+                    fillMode: Image.PreserveAspectCrop
+
+                    anchors.fill: parent
+
+                    radius: 7
+
+                    ProgressBar {
+                      anchors.fill: parent
+                      // radius: parent.radius
+                    }
+                  }
+
+                  BaseButton {
+                    id: playersButton
+
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                    anchors.topMargin: 5
+                    anchors.leftMargin: 5
+
+                    backgroundAlias.radius: 5
+
+                    width: 30
+                    height: width
+
+                    textAlias.rightPadding: 5
+                    text: "󰦚"
+
+                    tooltipText: "Change media player"
+
+                    onClicked: {
+                      if (Players.players.length == 2 && Config.media.widget.quickPlayerChange.value) {
+                        if (Players.playerId == 1) {
+                          Players.customPlayerId = 0
+                        } else {
+                          Players.customPlayerId = 1
+                        }
+                      } else {
+                        playersPopup.toggleOpen()
+                      }
+                    }
+
+                  }
+
+                  PlayersPopup {
+                    id: playersPopup
+                    anchor.item: playersButton
+                    anchor.edges: Edges.Bottom | Edges.Left
+                  }
+                }
+
+                Text {
+                  text: Utils.truncate(Players.player.trackTitle, 26)
+
+                  Layout.preferredWidth: parent.width
+
+                  horizontalAlignment: Text.AlignHCenter
+
+                  font.pointSize: 11
+                  font.family: root.theme.currentFamily
+
+                  color: root.theme.textPrimary
+                }
+                Text {
+                  text: Utils.truncate(Players.player.trackArtist, 20) + " - " + Utils.secondsToMinutesSeconds(Math.round(Players.player.position)) + "/" + Utils.secondsToMinutesSeconds(Players.player.length)
+
+                  Layout.preferredWidth: parent.width
+                  
+                  horizontalAlignment: Text.AlignHCenter
+
+                  font.pointSize: 8
+                  font.family: root.theme.currentFamily
+
+                  color: root.theme.textPrimary
+                }
+
+                Row {
+                  id: buttonRow
+                  spacing: 5
+
+                  Layout.alignment: Qt.AlignHCenter
+
+                  BaseButton {
+                    implicitHeight: 50
+                    implicitWidth: height
+
+                    backgroundAlias.radius: 10
+
+                    backgroundColor: "transparent"
+
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    fontSize: 15
+                    text: ""
+
+                    onClicked: Players.player.previous()
+                  }
+
+                  BaseButton {
+                    implicitHeight: 50
+                    implicitWidth: height
+
+                    backgroundAlias.radius: 10
+
+                    backgroundColor: "transparent"
+
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    fontSize: 15
+                    text: {
+                      if (Players.player.isPlaying){
+                        ""
+                      } else {
+                        ""
+                      }
+                    }
+
+                    onClicked: Players.player.togglePlaying()
+                  }
+
+                  BaseButton {
+                    implicitHeight: 50
+                    implicitWidth: height
+
+                    backgroundAlias.radius: 10
+
+                    backgroundColor: "transparent"
+
+                    anchors.verticalCenter: parent.verticalCenter
+
+                    fontSize: 15
+                    text: ""
+
+                    onClicked: Players.player.next()
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

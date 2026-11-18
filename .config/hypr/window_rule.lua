@@ -105,6 +105,18 @@ hl.window_rule({
     center = true
 })
 
+-- Hypr File Manager
+hl.window_rule({
+    name = "hyprfm",
+    match = {
+        class = "^(dev.hyprfm.HyprFM)$",
+        title = "^(Properties|Batch Rename|Keyboard Shortcuts)$"
+    },
+    float = true,
+    size = "500 200",
+    center = true
+})
+
 -- Etiquetas
 hl.window_rule({
     match = {
@@ -120,6 +132,12 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
+        class = "^(dev.hyprfm.HyprFM)$",
+    },
+    tag = "+common",
+})
+hl.window_rule({
+    match = {
         class = "^(org.telegram.desktop)$",
     },
     tag = "+chat",
@@ -129,6 +147,18 @@ hl.window_rule({
         class = "^(discord)$",
     },
     tag = "+chat",
+})
+hl.window_rule({
+    match = {
+        class = "^(org.mozilla.Thunderbird)$",
+    },
+    tag = "+chat",
+})
+hl.window_rule({
+    match = {
+        class = "^(Termius)$",
+    },
+    tag = "+common",
 })
 hl.window_rule({
     match = {
@@ -152,7 +182,7 @@ hl.window_rule({
     match = {
         class = "^(org.gnome.Rhythmbox3)$",
     },
-    tag = "+common",
+    tag = "+music",
 })
 hl.window_rule({
     match = {
@@ -163,6 +193,12 @@ hl.window_rule({
 hl.window_rule({
     match = {
         class = "^(org.pulseaudio.pavucontrol)$",
+    },
+    tag = "+common",
+})
+hl.window_rule({
+    match = {
+        class = "^(hyprpwcenter)$", 
     },
     tag = "+common",
 })
@@ -235,7 +271,8 @@ hl.window_rule({
         tag = "chat",
     },
     -- monitor = 1,
-    -- opacity = 0.9,
+    opacity = 0.9,
+    float = true,
 })
 hl.window_rule({
     name = "Code",
@@ -250,7 +287,6 @@ hl.window_rule({
     match = {
         tag = "video",
     },
-    fullscreen = true,
     -- monitor = 1,
     float = true,
 })
@@ -261,6 +297,7 @@ hl.window_rule({
     },
     -- monitor = 0,
     opacity = 0.9,
+    float = true
 })
 hl.window_rule({
     name = "Music",
@@ -269,6 +306,7 @@ hl.window_rule({
     },
     -- monitor = 0,
     opacity = 0.9,
+    float = true
 })
 hl.window_rule({
     name = "Games",

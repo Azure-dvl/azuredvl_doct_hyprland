@@ -15,14 +15,12 @@ end)
 
 -- Hyprland
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar & hyprpaper")
+    hl.exec_cmd("qs & hyprpaper &")
     hl.exec_cmd("hypridle")
 end)
 
 -- Programs
 hl.on("hyprland.start", function()
-    hl.exec_cmd("kitty cava")
-    hl.exec_cmd("kitty ranger")
     hl.exec_cmd("kitty")
 end)
 

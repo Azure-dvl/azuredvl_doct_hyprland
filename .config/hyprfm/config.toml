@@ -1,0 +1,83 @@
+[general]
+start_dir = "~"
+show_hidden = false
+default_view = "list"      
+sort_by = "name"             
+directories_first = true
+single_click = false 
+terminal = "kitty"        
+terminal_sync = true
+date_format = "%d %b %Y  %H:%M"
+
+### better configs
+icon_theme = "Tela dracula"
+builtin_terminal = false   
+remember_sort_per_folder = true
+
+[sidebar]
+position = "left"
+width = 100
+visible = true
+hidden_quick_access = []
+
+[window]
+width = 700
+height = 500
+button_layout = ":minimize,maximize,close"
+
+[appearance]
+accent = "#616c79"
+font = "NotoSerif"                    
+icon_size_list = 16
+icon_size_grid = 64                  
+
+### better config
+radius_small = 4
+radius_medium = 8
+radius_large = 12
+transparency_enabled = true    
+transparency_level = 1.0       
+animations_enabled = true
+anim_duration_fast = 100       
+anim_duration = 200
+anim_duration_slow = 350
+anim_curve_enter = "OutCubic"  
+anim_curve_exit = "InCubic"
+anim_curve_transition = "Bezier"
+
+[list_view]
+columns = ["name", "size", "modified", "type"]
+column_widths = { size = 110, modified = 140, type = 80 }
+
+# Keybindings use GTK accelerator syntax: <Ctrl>, <Shift>, <Alt>, <Super>
+# Set a binding to "" to disable it.
+[keybindings]
+reload = "F5"
+new-tab = "<Ctrl>t"
+split = "F3"
+open-terminal = "<Shift>F4"
+filter = "<Ctrl>f"
+show-hidden = "<Ctrl>h"
+copy = "<Ctrl>c"
+cut = "<Ctrl>x"
+paste = "<Ctrl>v"
+select-all = "<Ctrl>a"
+rename = "F2"
+trash = "Delete"
+delete = "<Shift>Delete"
+new-folder = "<Ctrl><Shift>n"
+copy-path = "<Ctrl><Shift>c"
+
+[[bookmarks]]
+names = "Work"
+path = "~/Projects"
+icon = "folder-symbolic"
+
+[[bookmarks]]
+names = "Games"
+path = "~/Games"
+icon = "folder-symbolic"
+
+[[actions]]
+name = "Open in VS Code"
+command = "code %d"

@@ -1,4 +1,4 @@
 var_font = "0xProtoNerdFont"
-var_theme = "Adwaita-dark"
-var_icons = "Tela dracula dark"
+var_theme = "Nordic"
+var_icons = "Tela dracula"
 var_cursor = "Bibata-Modern-Ice"

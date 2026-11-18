@@ -1,10 +1,12 @@
+// shell.qml
 //@ pragma UseQApplication
 
 import Quickshell
-import QtQuick
-import "bar"
-
+import "Bar"
 
 Scope {
-  Bar {}
+    Bar {}
+    MediaMenu {}
+    AppMenu {}
+    OSD {}
 }
