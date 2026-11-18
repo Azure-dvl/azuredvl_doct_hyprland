@@ -160,6 +160,9 @@ PKGS_BASE=(
     gdm
     firefox
     pamixer
+    pavucontrol             # control de audio (PulseAudio/PipeWire)
+    blueman                 # gestor Bluetooth (GUI)
+    cava                    # visualizador de audio (SUPER+C)
 
     # --- Qt6 (Quickshell: UseQApplication + QT_QPA_PLATFORMTHEME=gtk3) ---
     qt6-base
@@ -251,7 +254,7 @@ install_aur() {
 }
 
 # ──────────────────────── Copiado de configuraciones ─────────────────────
-CONFIG_DIRS=(hypr rofi quickshell waybar kitty dunst cava ranger fastfetch)
+CONFIG_DIRS=(hypr rofi quickshell waybar kitty dunst cava ranger fastfetch htop hyprfm)
 
 backup_configs() {
     local stamp dest
@@ -395,11 +398,11 @@ post_install() {
         warn "hyprland no encontrado"
     fi
 
-    for b in qs hyprpaper hypridle hyprlock dunst thunar rofi kitty brightnessctl nm-applet; do
+    for b in qs hyprpaper hypridle hyprlock dunst thunar rofi kitty brightnessctl nm-applet cava; do
         have "$b" || warn "falta: $b"
     done
     have grimblast || warn "falta: grimblast (AUR) — las capturas no funcionarán"
-    have tty-clock || warn "falta: tty-clock (AUR) — SUPER+H no funciona"
+    have tty-clock || warn "falta: tty-clock (AUR) — SUPER+H está comentado, pero puede ser útil"
 
     if [[ $DRY_RUN -eq 0 ]] && [[ -n "${WAYLAND_DISPLAY:-}" ]] && have hyprctl; then
         if hyprctl -j monitors >/dev/null 2>&1; then
@@ -413,7 +416,7 @@ report() {
 
 ${C_B}Resumen${C_RST}
   Respaldo de configs : ~/dotfiles_backup/<fecha>
-  Configs instaladas  : ~/.config/{hypr,rofi,quickshell,waybar,kitty,dunst,cava,ranger,fastfetch}
+  Configs instaladas  : ~/.config/{hypr,rofi,quickshell,waybar,kitty,dunst,cava,ranger,fastfetch,htop,hyprfm}
   Wallpapers          : ~/.wallpapers
   Barra / OSD         : Quickshell (qs). waybar queda como alternativa sin autostart.
 
@@ -423,8 +426,9 @@ ${C_B}Pendiente de configuración manual${C_RST}
        hyprctl monitors
   2. Teclado/touchpad: ~/.config/hypr/config/input.lua (epic-mouse-v1, teclado US)
   3. Reglas de ventanas: ~/.config/hypr/window_rule.lua
-  4. SUPERO ejecuta 'opencode' (keybind.lua:12): instálalo aparte si lo usas.
-  5. waybar NO se autostartea (usa Quickshell). Si lo quieres, quita 'qs &'
+  4. SUPER+O ejecuta 'opencode' (keybind.lua): instálalo aparte si lo usas.
+  5. hyprfm: instala el binario/configuración adicional si usas este file manager.
+  6. waybar NO se autostartea (usa Quickshell). Si lo quieres, quita 'qs &'
      de ~/.config/hypr/autostart.lua y arranca 'waybar' en su lugar.
 
 EOF
