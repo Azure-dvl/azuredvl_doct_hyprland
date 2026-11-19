@@ -2,24 +2,17 @@
 
 Configuración personal de **Hyprland** para **Arch Linux**, escrita en **Lua**.
 
-> [!IMPORTANT]
-> Esta config usa la API **`hl.*` en Lua** (archivo `~/.config/hypr/hyprland.lua`,
-> con `require(...)`). Requiere **Hyprland ≥ 0.56**. En versiones anteriores sólo
-> se entiende el formato `.conf`, y esta configuración no cargará.
-
 ## Screenshots
-
-> Coloca tus capturas y videos en `scrennshots/` y actualiza las rutas si usas otros nombres.
 
 ### Fotos
 
 | Escritorio | Apps / Launcher |
 | --- | --- |
-| ![Screenshot 1](scrennshots/screenshot-1.png) | ![Screenshot 2](scrennshots/screenshot-2.png) |
+| ![Screenshot 1](screenshots/screenshot_1.png) | ![Screenshot 2](screenshots/screenshot_2.png) |
 
-| Lockscreen / Extra | Extra |
+| QuickShell | |
 | --- | --- |
-| ![Screenshot 3](scrennshots/screenshot-3.png) | ![Screenshot 4](scrennshots/screenshot-4.png) |
+| ![Screenshot 3](screenshots/screenshot_3.png) | ![Screenshot 4](screenshots/screenshot_4.png) |
 
 ### Video
 
@@ -27,9 +20,7 @@ Configuración personal de **Hyprland** para **Arch Linux**, escrita en **Lua**.
 <!-- <video src="scrennshots/demo.mp4" controls width="100%"></video> -->
 
 <!-- Opción 2: enlace/miniatura al video -->
-[![Demo en video](scrennshots/video-thumb.png)](scrennshots/demo.mp4)
-
-_Si prefieres, sube el video a YouTube y reemplaza este bloque por un enlace o thumbnail._
+[[Video]](screenshots/my_docts.mp4)
 
 ## Instalación rápida
 
@@ -122,9 +113,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
 chsh -s /usr/bin/zsh
 ```
 
-> El repositorio ya **no incluye `.zshrc`** (se eliminó en el commit `da8c22f`),
-> por lo que la config de zsh/p10k queda a tu elección.
-
 </details>
 
 ---
@@ -158,13 +146,6 @@ Quickshell es `~/.config/quickshell/shell.qml`, que carga:
 | `MediaMenu.qml` | Menú/control multimedia (MPRIS) |
 | `AppMenu.qml` | Menú/lanzador de aplicaciones |
 
-> `quickshell/` también expone IPC (p. ej. `bar toggle`), pero **no hay keybinds que lo invoquen por defecto**.
-> `waybar` sigue en el repo con su `config.jsonc` + CSS, pero no se autostartea.
-> Si lo prefieres, quita `qs &` de `autostart.lua` y arranca `waybar`.
-
-> **waybar** sigue en el repo con su `config.jsonc` + CSS, pero no se autostartea.
-> Si lo prefieres, quita `qs &` de `autostart.lua` y arranca `waybar`.
-
 ## Keybinds
 
 | Combo | Acción |
@@ -187,8 +168,6 @@ Quickshell es `~/.config/quickshell/shell.qml`, que carga:
 | `SUPER + arrastrar` | Mover / redimensionar ventana (LMB/RMB) |
 | `Print` | Captura completa (`grimblast --notify copy output`) |
 | `SHIFT + Print` | Captura de área (`grimblast --notify --freeze copy area`) |
-
-> Atajos comentados en la config actual: `SUPER + N` (Firefox) y `SUPER + H` (`tty-clock`).
 
 ## Paquetes por dependencia (de dónde sale cada cosa)
 
@@ -221,8 +200,6 @@ Quickshell es `~/.config/quickshell/shell.qml`, que carga:
 | `htop`, `btop`, `fastfetch`, `ranger`, `mpv`, `firefox` | utilidades/apps incluidas en la config |
 | `tty-clock` (AUR) | atajo comentado (`SUPER + H`) y utilidad opcional |
 
-> `opencode` y el binario de `hyprfm` no se instalan desde los repos oficiales/este script (config incluida, instalación aparte si los usas).
-
 ## Personalización
 
 | Qué | Dónde |
@@ -236,39 +213,3 @@ Quickshell es `~/.config/quickshell/shell.qml`, que carga:
 | Reglas de ventanas | `hypr/window_rule.lua` |
 | Autostart | `hypr/autostart.lua` |
 | Tema de Quickshell | `quickshell/Theme.qml` y `quickshell/settings.json` |
-
-> **Nota:** `hyprland.lua` hace `require("hyprland-gui")` al final; si usas HyprMod, ese archivo puede existir/gestionar ajustes adicionales. Si no existe en tu copia, elimina o comenta el `require` para evitar errores al cargar.
-
-## Problemas conocidos en el repo
-
-Detectados al revisar la config; no están arreglados aquí:
-
-1. **`dunst/dunstrc:38`** — `format = "<b>%s</b>\n%b:` es una cadena sin cerrar.
-   Dunst no logra parsear ese bloque.
-2. **`rofi/launchers/type-1/style-5.rasi:23-24`** — `@import ".config/rofi/..."`
-   sin `~` ni `../`. Es el tema que usa `SUPER + M`, así que se pierde color y
-   fuente. Las otras 14 hojas de `type-1` sí usan `@import "shared/..."`.
-3. **`hypr/autostart.lua:13`** — ruta absoluta `/home/azure/.config/dunst/dunstrc`.
-   `install.sh` la reescribe a `$HOME` salvo que uses `--no-fix-paths`.
-4. **`rofi/config.rasi:85`** — `terminal: "rofi-sensible-terminal"`, binario que
-   sólo existe en Debian. En Arch los modos `run` y `ssh` fallan.
-5. **`rofi/config.rasi:60`** — `window-command: "wmctrl ..."` es X11; el modo
-   `window` no funciona bajo Wayland.
-6. **`rofi/config.rasi:107-180`** — todo el bloque de keybinds de rofi está
-   comentado, incluidos `kb-custom-1..19` y `kb-screenshot`.
-7. **Sin keybinds para Quickshell** — bar / idle / monitors sólo se controlan
-   desde `quickshell ipc call`.
-8. **Códigos muertos** — `rofi/scripts/*` son symlinks (correcto), pero
-   `launchers/type-2..7`, `powermenu/type-1..6`, los 9 `applets/bin/*.sh` y 14 de
-   los 16 `rofi/colors/*.rasi` no están enlazados a nada.
-9. **`rofi/powermenu/*` y `rofi/applets/bin/*`** asumen X11/alacritty/ALSA
-   (`openbox|bspc|i3-msg|qdbus`, `amixer`, `xrandr`, `xclip`, `viewnior`,
-   `maim`, `light`, `acpi`, `betterlockscreen`). En Hyprland varios menús no
-   hacen nada.
-10. **`waybar/config.jsonc`** tiene rutas absolutas a `/usr/bin/{android-studio,
-    code, obs, Telegram, thunderbird, lutris}` y un `.desktop` de Discord con tu
-    ID; fallan si instalaste vía AUR/Flatpak.
-11. **`cava/config`** declara la sección `[color]` dos veces (líneas 213 y 230).
-12. **`waybar/config.jsonc:29`** usa `hyprpwcenter` (existe en Arch `extra`, pero
-    no viene con Hyprland — instálalo aparte si usas waybar).
-13. **`.zshrc` ya no está en el repo** aunque el README anterior lo copiaba.
