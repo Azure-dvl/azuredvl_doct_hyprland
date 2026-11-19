@@ -17,10 +17,7 @@ Configuración personal de **Hyprland** para **Arch Linux**, escrita en **Lua**.
 ### Video
 
 <!-- Opción 1: video local (GitHub puede no reproducir todos los formatos en el README) -->
-<!-- <video src="scrennshots/demo.mp4" controls width="100%"></video> -->
-
-<!-- Opción 2: enlace/miniatura al video -->
-[[Video]](screenshots/my_docts.mp4)
+<video src="screenshots/my_docts.mp4" controls width="100%"></video>
 
 ## Instalación rápida
 
